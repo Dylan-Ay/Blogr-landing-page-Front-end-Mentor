@@ -1,0 +1,433 @@
+// RFS
+@import "node_modules/rfs/scss.scss";
+// Colors
+$primary-text-color: white; //body
+$secondary-text-color: hsl(207, 13%, 34%); //body
+$footer-text-color: rgb(200, 200, 203); //footer
+$footer-background-color: hsl(240, 10%, 16%);
+$start-button-text-color: hsl(356, 100%, 66%);
+$start-button-hover-background-color: #ff7a85;
+$headings-text-color: #1f3f5b;
+$border-radius-block: 95px;
+
+@mixin background-nav-button{
+    background-color: rgb(255,143,112);
+    background-color: linear-gradient(90deg, rgba(255,143,112,1) 30%, rgba(255,97,76,1) 80%);
+}
+
+@mixin button-size{
+    border-radius: 25px;
+    padding: 11px 10px 11px 10px !important;
+}
+
+@mixin shadow-navbar{
+    box-shadow: 0px 50px 61px -12px rgba(0,0,0,0.46);
+    -webkit-box-shadow: 0px 50px 61px -12px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 50px 61px -12px rgba(0,0,0,0.46);
+}
+
+@mixin button-transition{
+    color: .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    transition-property: color, background-color, border-color;
+    transition-duration: 0.15s, 0.15s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+    transition-delay: 0s, 0s, 0s;
+}
+
+// Typography
+$font-size: 16px;
+$primary-font-family-overpass: 'Overpass', sans-serif;
+$secondary-font-family-ubuntu: 'Ubuntu', sans-serif;
+
+// Font-weight
+$light: 300;
+$semi-bold: 500;
+$almost-bold: 600;
+$bold: 700;
+
+// General settings
+body{
+    font-size: $font-size;
+    margin: 0px;
+    font-family: $primary-font-family-overpass;
+    & a{
+        text-decoration: none;
+    }
+}
+h2{
+    color: $headings-text-color;
+    font-weight: 600;
+}
+.img-desktop{
+    display: none;
+    @media (min-width: 992px){
+        display: block;
+    }
+}
+.img-mobile{
+    display: block;
+    margin: auto;
+    @media (min-width: 992px){
+        display: none;
+    }
+}
+
+// Header
+.navbar-light .navbar-toggler{
+    border-color: transparent;
+}
+.dropdown-menu{
+    border: none;
+    border-radius: 8px;
+    background-color: #e7e7e796;
+    @media (min-width: 992px){
+        background-color: white;
+    }
+}
+.dropdown-item{
+    font-weight: $semi-bold;
+    color: $secondary-text-color;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+.navbar-brand{
+    color: $primary-text-color !important;
+    font-size: 30px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: $headings-text-color;
+    @media (min-width: 992px){
+        color: white;
+        &:hover{
+            color: white;
+            text-decoration: underline;
+        }
+        &:focus{
+            color: white;
+        }
+    }
+}
+.navbar-light .navbar-toggler-icon{
+    background-image: url(images/icon-hamburger.svg);
+}
+nav{
+    font-family: $secondary-font-family-ubuntu;
+    font-weight: $semi-bold;
+}
+#navbarNavDropdown{
+    background-color: white;
+    border-radius: 5px;
+    @include shadow-navbar();
+    @media (min-width: 992px){
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+.dropdown-menu{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+header{
+    border-bottom-left-radius: $border-radius-block;
+    background: rgb(255,143,112);
+    background-image: url(images/bg-pattern-intro-mobile.svg), linear-gradient(90deg, rgba(255,143,112,1) 30%, rgba(255,97,76,1) 80%);
+    background-size: 53em;
+    background-position-x: -4.5em;
+    background-position-y: -2.3125em;
+    @media (min-width: 775px) and (max-width: 992px){
+        background-position-x: unset;
+    }
+    @media (min-width: 849px) and (max-width: 992px){
+        background-size: cover;
+    }
+    @media (min-width: 992px) {
+        background-image: url(images/bg-pattern-intro-desktop.svg), linear-gradient(90deg, rgba(255,143,112,1) 30%, rgba(255,97,76,1) 80%);
+        background-position-x: -20.5em;
+        background-position-y: -78.3125em;
+        background-size: 181em;
+    }
+}
+.nav-button-mobile{
+    border: 1px transparent solid;
+    @include background-nav-button();
+    @include button-size();
+    margin: 10px 95px 25px 95px;
+    color: $primary-text-color !important;
+    @media (min-width: 992px){
+        margin: initial;
+        background-color: white;
+        color: $start-button-text-color !important;
+        width: 130px;
+        text-decoration: none !important;
+        &:hover{
+            background-color: $start-button-hover-background-color;
+            color: white !important;
+            border: 1px solid white;
+        }
+    }
+}
+.item-to-hide{
+    @media (min-width: 992px){
+        display: none;
+    }
+}
+.items-to-show{
+    display: none;
+    & a{
+        color: $primary-text-color;
+        &:hover{
+            color: $primary-text-color;
+            text-decoration: underline;
+        }
+    }
+    &:first-child{
+        color: $primary-text-color !important; 
+    }
+    &:last-child{
+        text-align: center;
+    }
+    @media (min-width: 992px){
+        display: flex;
+    }
+}
+.border-top{
+    border-top: 1px solid grey;
+    @media (min-width: 992px){
+        border-top: 0px !important;
+    }
+}
+.dropdown-item{
+    &:focus, &:hover{
+        background-color: transparent !important;
+        color: black;
+    }
+    @media (min-width: 992px){
+        &:hover{
+            font-weight: $almost-bold;
+        }
+    }
+}
+.header-information{
+    text-align: center;
+    color: $primary-text-color;
+    & h1{
+        margin-top: 110px;
+        @include font-size(60px);
+    }
+    & h4{
+        font-weight: $light;
+    }
+    & h1, h4{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    & .call-to-action{
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 140px;
+        & a{
+            @include button-size();
+            width: 130px;
+            border: 1px white solid;
+            font-family: $secondary-font-family-ubuntu;
+            font-weight: $almost-bold;
+            color: $primary-text-color;
+        }
+        & :first-child{
+            background-color: white;
+            color: $start-button-text-color;
+            @include button-transition();
+            &:hover{
+                background-color: $start-button-hover-background-color;
+                color: $primary-text-color;
+                
+            }
+        }
+        & :last-child{
+            @include button-transition();
+            &:hover{
+                background-color: white;
+                color: $start-button-text-color;
+            }
+        }
+    }
+}
+
+// Main
+main{
+    text-align: center;
+    color: $secondary-text-color;
+// Designed for the future
+    & #designed-future{
+        & h2{
+            @media (min-width: 992px){
+                margin-bottom: -4em;
+            } 
+        }
+        & .row{
+            margin-bottom: -4em;
+        }
+        & .container-fluid{
+            margin-top: 95px;
+            @media (min-width: 992px){
+                max-width: 100%;
+                margin-top: 150px;
+            }
+            & .col-lg-5{
+                @media (min-width: 992px){
+                    width: 43.666667%;
+                }
+            }
+        }
+        & .img-desktop{
+            background-image: url(images/illustration-editor-desktop.svg);
+            background-repeat: no-repeat;
+            background-position-x: 2em;
+            background-position-y: center;
+        }
+        & .special-height{
+            @media (min-width: 992px){
+                height: 55.3em;
+            }
+        }
+    }
+// State of the Art
+    & .phone{
+        margin-bottom: -12.6875em;
+        @media (min-width: 992px){
+            margin-bottom: -31.75em;
+        }
+    }
+    & .phone-on-top{
+        z-index: 1;
+    }
+    & .div-behind{
+        z-index: 0;
+        & .col-lg-7, .col-xl-6{
+            @media (min-width: 992px){
+                margin-left: 33em;
+            }
+        }
+    }
+    & .state-of-art{
+        padding-top: 9.375em;
+        background: rgb(44,45,63);
+        background-image: url(images/bg-pattern-circles.svg), linear-gradient(90deg, rgba(44,45,63,1) 100%, rgba(63,65,100,1) 96%);
+        background-size: cover;
+        color: $primary-text-color;
+        background-size: 38em;
+        background-position-x: -7.3em;//-95px;
+        background-position-y: -16.7em;//-254px;
+        background-repeat: no-repeat;
+        border-top-right-radius: $border-radius-block;
+        border-bottom-left-radius: $border-radius-block;
+        @media (min-width: 992px){
+            padding-top: 2.375em;
+            background-size: 60em;
+            background-position-x: -12.3em;
+            background-position-y: -28.7em;
+        }
+        & p{
+            opacity: 0.9;
+            font-weight: $light;
+            padding-bottom: 130px;
+        }
+        & h2{
+            font-size: 35px;
+            color: $primary-text-color;
+            font-weight: $semi-bold;
+        } 
+    }
+    & .mw-lg-100{
+        @media (min-width: 992px){
+            max-width: 100%;
+        }
+    }
+}
+
+#state-art{
+    & .img-desktop{
+        background-image: url(images/illustration-laptop-desktop.svg);
+        background-position-x: right;
+        background-position-y: center;
+        background-repeat: no-repeat;
+    }   
+    & .special-height{
+        @media (min-width: 992px){
+            height: 50.1em;
+        }
+    }
+}
+
+// Footer
+
+footer{
+    font-family: $secondary-font-family-ubuntu;
+    & a{
+        color: $footer-text-color;
+        &:hover{
+            color: $footer-text-color;
+            text-decoration: underline;
+        }
+    }
+    & .container-fluid{
+        background-color:$footer-background-color;
+        color: $footer-text-color;
+        border-top-right-radius: $border-radius-block;
+        & img{
+            height: 40px;
+        }
+    }
+    & .title-list a{
+        color: $primary-text-color;
+    }
+}
+
+
+    .animate {
+      animation-duration: 0.5s;
+      -webkit-animation-duration: 0.5s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+  
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+  
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+  
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+  
+  .slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
