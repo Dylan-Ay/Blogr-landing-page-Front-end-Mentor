@@ -88,6 +88,32 @@ h2{
     font-weight: $semi-bold;
     color: $secondary-text-color;
 }
+.dropdown-toggle::after {
+    display: unset;
+    margin-left: unset;
+    vertical-align: unset;
+    content: unset;
+    border-top: unset;
+    border-right: unset;
+    border-bottom: unset;
+    border-left: unset;
+}
+.arrow{
+    display: inline-block;
+    background-image: url(images/icon-arrow-dark.svg);
+    background-repeat: no-repeat;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    width: 11px;
+    height: 7px;
+    margin-left: 2px;
+    vertical-align: 0.055em;
+    @media (min-width: 992px){
+        background-image: url(images/icon-arrow-light.svg); 
+    }
+}
 .navbar-toggler:focus{
     box-shadow: none;
 }
@@ -122,6 +148,13 @@ nav{
     @media (min-width: 992px){
         background-color: transparent;
         box-shadow: none;
+    }
+    @media (max-width: 992px){
+        position: absolute;
+        top: 97px;
+        right: 10px;
+        left: 10px;
+        z-index: 1;
     }
 }
 .dropdown-menu{
@@ -305,7 +338,7 @@ main{
     }
     & .div-behind{
         z-index: 0;
-        & .col-lg-7, .col-xl-6{
+        & .col-lg-6, .col-xl-5{
             @media (min-width: 992px){
                 margin-left: 33em;
             }
@@ -362,7 +395,6 @@ main{
 }
 
 // Footer
-
 footer{
     font-family: $secondary-font-family-ubuntu;
     & a{
@@ -384,8 +416,7 @@ footer{
         color: $primary-text-color;
     }
 }
-
-
+// Animations
     .animate {
       animation-duration: 0.5s;
       -webkit-animation-duration: 0.5s;
