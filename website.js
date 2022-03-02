@@ -16,7 +16,7 @@ function changeArrowPosition(){
         if (arrowBoolean === true){
             arrowIcon.style.transform = "rotate(180deg)";
             arrowBoolean = false;
-        } else{
+        } else if(arrowBoolean === false){
             arrowIcon.style.transform = "rotate(0deg)";
             arrowBoolean = true;
         }
@@ -25,8 +25,8 @@ function changeArrowPosition(){
         if (arrowBoolean === true){
             arrowIconTwo.style.transform = "rotate(180deg)";
             arrowBoolean = false;
-        } else{
-            arrowIconTwo.style.transform = "rotate(0deg)";
+        } else if(arrowBoolean === false){
+            arrowIcon.style.transform = "rotate(0deg)";
             arrowBoolean = true;
         }
     });
@@ -34,17 +34,17 @@ function changeArrowPosition(){
         if (arrowBoolean === true){
             arrowIconThree.style.transform = "rotate(180deg)";
             arrowBoolean = false;
-        } else{
-            arrowIconThree.style.transform = "rotate(0deg)";
+        } else if(arrowBoolean === false){
+            arrowIcon.style.transform = "rotate(0deg)";
             arrowBoolean = true;
         }
     });
 };
 
-function resetArrowPosition(){
+function resetArrowPositionIfOutside(){
     document.addEventListener('click', function(event) {
         var isClickInside = firstLink.contains(event.target);
-        if (!isClickInside) {
+        if (!isClickInside){
             arrowIcon.style.transform = "rotate(0deg)";
             arrowBoolean = true;
         }
@@ -68,7 +68,7 @@ function resetArrowPosition(){
 };
 
 changeArrowPosition();
-resetArrowPosition();
+resetArrowPositionIfOutside();
 
 
 // Change Burger Icon to cross

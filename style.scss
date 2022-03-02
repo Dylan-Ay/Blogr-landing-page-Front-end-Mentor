@@ -71,7 +71,9 @@ h2{
         display: none;
     }
 }
-
+.first-arrow, .second-arrow, .third-arrow{
+    transition: all 0.3s ease;
+}
 // Header
 .navbar-light .navbar-toggler{
     border-color: transparent;
@@ -340,7 +342,7 @@ main{
         z-index: 0;
         & .col-lg-6, .col-xl-5{
             @media (min-width: 992px){
-                margin-left: 33em;
+                margin-left: 41.7%;
             }
         }
     }
@@ -390,6 +392,11 @@ main{
     & .special-height{
         @media (min-width: 992px){
             height: 50.1em;
+        }
+    }
+    & .m-auto-mobile{
+        @media (max-width: 991.5px){
+            margin: auto;
         }
     }
 }
